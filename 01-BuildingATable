@@ -1,0 +1,35 @@
+function BuildingATable(input){
+    var start = Number(input[0]);
+    var end = Number(input[1]);
+
+    console.log('<table>');
+    console.log('<tr><th>Num</th><th>Square</th><th>Fib</th></tr>');
+
+    for(var i = start; i <= end; i++){
+        var output = '<tr><td>' + i + '</td><td>' + i*i + '</td><td>';
+
+        var fib = true;
+        var f1 = 0;
+        var f2 = 1;
+        var f3 = 1;
+        for(var j = 0; j <= i ; j++){
+            f3 = f1+f2;
+            if(f3 > i){
+                fib = false;
+                break;
+            } else if( f3 == i){
+                break;
+            } else {
+                f1 = f2;
+                f2 = f3;
+            }
+        }
+        if(fib){
+            output += 'yes</td></tr>';
+        } else {
+            output += 'no</td></tr>';
+        }
+        console.log(output);
+    }
+    console.log('</table>');
+}
